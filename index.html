@@ -109,8 +109,15 @@ body{
 .p6{left:91%;top:84%;animation-delay:3s;}
 
 @keyframes float{
-    0%,100%{transform:translateY(0);opacity:.2;}
-    50%{transform:translateY(-18px);opacity:.7;}
+    0%,100%{
+        transform:translateY(0);
+        opacity:.2;
+    }
+
+    50%{
+        transform:translateY(-18px);
+        opacity:.7;
+    }
 }
 
 /* =========================================================
@@ -164,30 +171,103 @@ body{
 }
 
 @keyframes shine{
-    0%,65%{transform:translateX(-100%);}
-    85%,100%{transform:translateX(100%);}
+    0%,65%{
+        transform:translateX(-100%);
+    }
+
+    85%,100%{
+        transform:translateX(100%);
+    }
 }
 
+
+/* =========================================================
+   MARCO DE LA FOTO
+========================================================= */
+
 .image-frame{
+    position:relative;
     padding:13px;
-    background:linear-gradient(
-        135deg,
-        rgba(218,181,100,.35),
-        rgba(90,50,120,.12),
-        rgba(218,181,100,.28)
-    );
+    background:
+        linear-gradient(
+            135deg,
+            rgba(218,181,100,.35),
+            rgba(90,50,120,.12),
+            rgba(218,181,100,.28)
+        );
 }
+
+
+/* Foto */
 
 .image-frame img{
     display:block;
     width:100%;
     max-height:430px;
     object-fit:cover;
+
     border-radius:18px;
     border:1px solid rgba(218,181,100,.35);
+
     filter:saturate(.85) contrast(1.05);
-    box-shadow:0 0 35px rgba(0,0,0,.8);
+
+    box-shadow:
+        0 0 35px rgba(0,0,0,.8);
+
+    cursor:pointer;
+
+    transition:
+        transform .4s ease,
+        filter .4s ease,
+        box-shadow .4s ease;
 }
+
+
+/* Pequeña indicación */
+
+.photo-hint{
+    position:absolute;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    background:rgba(0,0,0,.62);
+
+    border:1px solid rgba(218,181,100,.35);
+
+    color:#d9b866;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:9px;
+    letter-spacing:1.5px;
+
+    white-space:nowrap;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    opacity:.8;
+
+    pointer-events:none;
+
+    transition:opacity .4s ease;
+}
+
+.image-frame:hover .photo-hint{
+    opacity:1;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL ENCABEZADO
+========================================================= */
 
 .header-info{
     padding:24px 20px 27px;
@@ -197,7 +277,10 @@ body{
 .cat-symbol{
     font-size:28px;
     color:#d9b866;
-    text-shadow:0 0 12px rgba(220,185,100,.45);
+
+    text-shadow:
+        0 0 12px rgba(220,185,100,.45);
+
     margin-bottom:10px;
 }
 
@@ -211,14 +294,20 @@ body{
 
 .header-title{
     font-family:'Cormorant Garamond',serif;
+
     font-size:clamp(27px,7vw,48px);
+
     line-height:1.05;
+
     font-weight:600;
+
     color:#e1bd6a;
+
     text-shadow:
         0 0 9px rgba(219,180,91,.28),
         0 14px 14px rgba(202,166,82,.07);
 }
+
 
 /* =========================================================
    CARTA
@@ -226,89 +315,131 @@ body{
 
 .letter{
     position:relative;
+
     background:
         linear-gradient(
             180deg,
             rgba(14,12,18,.96),
             rgba(7,7,11,.97)
         );
+
     border:1px solid rgba(216,178,91,.25);
+
     border-radius:30px;
+
     padding:42px 27px 45px;
+
     box-shadow:
         0 30px 80px rgba(0,0,0,.7),
         inset 0 0 45px rgba(170,115,210,.025);
+
     overflow:hidden;
 }
 
 .letter::before{
     content:"";
+
     position:absolute;
+
     top:-90px;
     left:50%;
+
     width:180px;
     height:180px;
+
     transform:translateX(-50%);
+
     background:rgba(160,100,200,.07);
+
     filter:blur(55px);
+
     border-radius:50%;
 }
 
 .letter::after{
     content:"";
+
     position:absolute;
+
     left:8%;
     right:8%;
     bottom:15px;
+
     height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(211,174,91,.35),
-        transparent
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(211,174,91,.35),
+            transparent
+        );
 }
 
 .letter p{
     position:relative;
     z-index:2;
+
     font-family:'Cormorant Garamond',serif;
+
     font-size:21px;
+
     line-height:1.72;
+
     color:#e3d8bf;
+
     margin-bottom:23px;
 }
 
 .letter p:first-child{
     text-align:center;
+
     color:#e0b961;
+
     font-size:28px;
+
     font-weight:600;
+
     margin-bottom:30px;
-    text-shadow:0 0 14px rgba(222,185,93,.18);
+
+    text-shadow:
+        0 0 14px rgba(222,185,93,.18);
 }
 
 .letter strong{
     color:#e2bb65;
+
     font-weight:600;
-    text-shadow:0 0 8px rgba(218,178,87,.18);
+
+    text-shadow:
+        0 0 8px rgba(218,178,87,.18);
 }
 
 .letter .love-line{
     text-align:center;
+
     font-size:27px;
+
     color:#e8c66e;
+
     margin:31px 0;
-    text-shadow:0 0 14px rgba(218,179,88,.2);
+
+    text-shadow:
+        0 0 14px rgba(218,179,88,.2);
 }
 
 .letter .signature{
     text-align:center;
+
     color:#d6b15f;
+
     margin-top:30px;
+
     margin-bottom:5px;
+
     font-size:23px;
 }
+
 
 /* =========================================================
    REFLEJO DECORATIVO
@@ -316,22 +447,44 @@ body{
 
 .reflection{
     position:relative;
+
     height:100px;
+
     margin-top:-3px;
+
     overflow:hidden;
+
     opacity:.25;
+
     transform:scaleY(-1);
-    mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent);
-    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent);
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.7),
+            transparent
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.7),
+            transparent
+        );
 }
 
 .reflection-text{
     text-align:center;
+
     font-family:'Cormorant Garamond',serif;
+
     font-size:27px;
+
     color:#d7b15f;
+
     filter:blur(1.5px);
 }
+
 
 /* =========================================================
    MENSAJE FINAL NEÓN
@@ -339,9 +492,13 @@ body{
 
 .final-love{
     margin:45px 0 35px;
+
     padding:35px 23px;
+
     border-radius:25px;
+
     border:1px solid rgba(170,80,255,.35);
+
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -349,16 +506,21 @@ body{
             transparent 65%
         ),
         rgba(8,5,13,.94);
+
     box-shadow:
         0 0 35px rgba(133,50,190,.12),
         inset 0 0 30px rgba(130,50,190,.04);
+
     text-align:center;
 }
 
 .final-love .paw{
     font-size:30px;
+
     margin-bottom:17px;
+
     color:#b66cff;
+
     filter:
         drop-shadow(0 0 6px #8f35ff)
         drop-shadow(0 0 15px rgba(166,75,255,.8));
@@ -366,9 +528,13 @@ body{
 
 .final-love p{
     font-family:'Cormorant Garamond',serif;
+
     font-size:23px;
+
     line-height:1.7;
+
     color:#d68cff;
+
     text-shadow:
         0 0 5px #a848ff,
         0 0 12px rgba(151,55,255,.75),
@@ -377,18 +543,26 @@ body{
 
 .final-love .noah{
     margin-top:22px;
+
     font-size:22px;
 }
 
 .final-love .heart{
     display:block;
+
     margin-top:20px;
+
     font-family:'Montserrat',sans-serif;
+
     font-size:11px;
+
     letter-spacing:4px;
+
     color:#b65cff;
+
     text-transform:uppercase;
 }
+
 
 /* =========================================================
    BOTÓN DEL POEMA
@@ -396,44 +570,66 @@ body{
 
 .poem-section{
     text-align:center;
+
     margin-top:40px;
 }
 
 .poem-label{
     font-size:11px;
+
     letter-spacing:3px;
+
     color:#8f7951;
+
     text-transform:uppercase;
+
     margin-bottom:16px;
 }
 
 .poem-button{
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:11px;
+
     min-height:57px;
+
     padding:0 27px;
+
     border-radius:999px;
+
     text-decoration:none;
+
     color:#08060b;
-    background:linear-gradient(
-        135deg,
-        #e8c36e,
-        #b98735
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8c36e,
+            #b98735
+        );
+
     font-family:'Montserrat',sans-serif;
+
     font-size:12px;
+
     font-weight:600;
+
     letter-spacing:1px;
+
     box-shadow:
         0 0 18px rgba(218,178,87,.2),
         0 8px 25px rgba(0,0,0,.5);
+
     transition:.35s ease;
 }
 
 .poem-button:hover{
     transform:translateY(-3px);
+
     box-shadow:
         0 0 25px rgba(218,178,87,.4),
         0 12px 30px rgba(0,0,0,.6);
@@ -443,24 +639,239 @@ body{
     transform:scale(.97);
 }
 
+
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
     text-align:center;
+
     margin-top:42px;
+
     color:#66583f;
+
     font-size:10px;
+
     letter-spacing:2px;
 }
 
 .footer-paw{
     display:block;
+
     font-size:20px;
+
     color:#80623a;
+
     margin-bottom:10px;
 }
+
+
+/* =========================================================
+   =========================================================
+   VISOR DE FOTO A PANTALLA COMPLETA
+   =========================================================
+========================================================= */
+
+.photo-fullscreen{
+    position:fixed;
+
+    inset:0;
+
+    width:100vw;
+    height:100vh;
+
+    width:100dvw;
+    height:100dvh;
+
+    background:#020204;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+}
+
+.photo-fullscreen.active{
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+}
+
+
+/* Fondo desenfocado */
+
+.fullscreen-overlay{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(88,45,110,.12),
+            transparent 55%
+        ),
+        rgba(0,0,0,.78);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    z-index:1;
+}
+
+
+/* Foto ampliada */
+
+.photo-fullscreen img{
+    position:relative;
+
+    z-index:2;
+
+    max-width:94vw;
+    max-height:86vh;
+
+    max-width:94dvw;
+    max-height:86dvh;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 0 35px rgba(0,0,0,.95),
+        0 0 80px rgba(173,112,255,.10);
+
+    transform:scale(.90);
+
+    opacity:0;
+
+    transition:
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        opacity .45s ease;
+}
+
+.photo-fullscreen.active img{
+    transform:scale(1);
+
+    opacity:1;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER A LA CARTA
+========================================================= */
+
+.close-photo{
+    position:absolute;
+
+    top:22px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+    border:1px solid rgba(218,181,100,.45);
+
+    background:rgba(8,7,12,.84);
+
+    color:#dfbd6d;
+
+    padding:12px 21px;
+
+    border-radius:30px;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 20px rgba(218,181,100,.08);
+
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.close-photo:hover{
+    background:rgba(218,181,100,.12);
+
+    box-shadow:
+        0 0 25px rgba(218,181,100,.2);
+}
+
+.close-photo:active{
+    transform:
+        translateX(-50%)
+        scale(.95);
+}
+
+
+/* =========================================================
+   MENSAJE EN PANTALLA COMPLETA
+========================================================= */
+
+.fullscreen-message{
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+    width:90%;
+
+    max-width:600px;
+
+    text-align:center;
+
+    color:rgba(224,188,105,.82);
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+        0 0 10px rgba(218,178,90,.25);
+
+    pointer-events:none;
+}
+
 
 /* =========================================================
    RESPONSIVE
@@ -482,7 +893,18 @@ footer{
 
     .image-frame img{
         max-height:340px;
+
         border-radius:14px;
+    }
+
+    .photo-hint{
+        bottom:18px;
+
+        font-size:8px;
+
+        padding:7px 12px;
+
+        letter-spacing:1.2px;
     }
 
     .header-info{
@@ -495,17 +917,21 @@ footer{
 
     .date{
         font-size:9px;
+
         letter-spacing:3px;
     }
 
     .letter{
         padding:34px 20px 38px;
+
         border-radius:24px;
     }
 
     .letter p{
         font-size:20px;
+
         line-height:1.68;
+
         margin-bottom:21px;
     }
 
@@ -523,19 +949,76 @@ footer{
 
     .final-love p{
         font-size:21px;
+
         line-height:1.65;
     }
 
     .poem-button{
         width:100%;
+
         max-width:330px;
+
         padding:0 17px;
     }
+
+
+    /* VISOR EN TELÉFONO */
+
+    .photo-fullscreen img{
+        max-width:96vw;
+
+        max-height:80vh;
+
+        max-width:96dvw;
+
+        max-height:80dvh;
+
+        border-radius:5px;
+    }
+
+    .close-photo{
+        top:17px;
+
+        font-size:10px;
+
+        padding:11px 17px;
+    }
+
+    .fullscreen-message{
+        bottom:18px;
+
+        font-size:16px;
+
+        width:88%;
+    }
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+========================================================= */
+
+@media(max-width:380px){
+
+    .photo-fullscreen img{
+        max-height:76vh;
+        max-height:76dvh;
+    }
+
+    .fullscreen-message{
+        font-size:14px;
+    }
+
 }
 </style>
 </head>
 
+
 <body>
+
+<!-- =====================================================
+     FONDO
+===================================================== -->
 
 <div class="water"></div>
 
@@ -546,25 +1029,37 @@ footer{
 <div class="particle p5"></div>
 <div class="particle p6"></div>
 
+
 <main class="page">
+
 
     <!-- =====================================================
          IMAGEN SUPERIOR
-         Cambia "noah-octubre-04.jpg" por el nombre de tu foto.
     ====================================================== -->
 
     <section class="cat-header">
 
         <div class="image-frame">
+
             <img
-                src="noah-octubre-04.jpg"
-                alt="Un recuerdo especial"
+                id="noahPhoto"
+                src="file_00000000d49c81f59ee1e5c6dfadffec.png"
+                alt="Noah, nuestro pequeño recuerdo"
+                ondblclick="openPhotoFullscreen()"
             >
+
+            <div class="photo-hint">
+                Toca dos veces la foto 🐾
+            </div>
+
         </div>
+
 
         <div class="header-info">
 
-            <div class="cat-symbol">🐾</div>
+            <div class="cat-symbol">
+                🐾
+            </div>
 
             <div class="date">
                 04 · OCTUBRE · 2026
@@ -628,12 +1123,16 @@ footer{
     </article>
 
 
-    <!-- Reflejo de la carta sobre el "agua" -->
+    <!-- =====================================================
+         REFLEJO DE LA CARTA
+    ====================================================== -->
 
     <div class="reflection">
+
         <div class="reflection-text">
             Te amo muchísimo, mi niña.
         </div>
+
     </div>
 
 
@@ -643,7 +1142,10 @@ footer{
 
     <section class="final-love">
 
-        <div class="paw">🐾</div>
+        <div class="paw">
+            🐾
+        </div>
+
 
         <p>
             Mon amour, si un jour les mots deviennent trop petits
@@ -653,6 +1155,7 @@ footer{
             dans chaque endroit où pudiera encontrarte.
         </p>
 
+
         <p class="noah">
             Et je veux croire que notre petit Noah veille sur nous
             depuis le ciel, qu'il marche doucement à nos côtés,
@@ -660,6 +1163,7 @@ footer{
             et qu'il reste pour toujours une petite lumière de notre amour,
             là où nous allions, preciosa.
         </p>
+
 
         <span class="heart">
             Pour toujours · toi et moi · et notre petit Noah
@@ -670,8 +1174,6 @@ footer{
 
     <!-- =====================================================
          BOTÓN DEL POEMA
-         Cambia "poema-04-octubre.html" si tu archivo tiene
-         otro nombre.
     ====================================================== -->
 
     <section class="poem-section">
@@ -679,6 +1181,7 @@ footer{
         <div class="poem-label">
             Una última huellita para esta mañana
         </div>
+
 
         <a
             class="poem-button"
@@ -690,9 +1193,15 @@ footer{
     </section>
 
 
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
     <footer>
 
-        <span class="footer-paw">🐾</span>
+        <span class="footer-paw">
+            🐾
+        </span>
 
         Hecho con amor, para Valeria.
 
@@ -700,5 +1209,186 @@ footer{
 
 </main>
 
+
+<!-- =========================================================
+     VISOR DE FOTO A PANTALLA COMPLETA
+========================================================= -->
+
+<div
+    id="photoFullscreen"
+    class="photo-fullscreen"
+    aria-hidden="true"
+>
+
+
+    <div class="fullscreen-overlay"></div>
+
+
+    <img
+        id="fullscreenImage"
+        src="file_00000000d49c81f59ee1e5c6dfadffec.png"
+        alt="Noah"
+    >
+
+
+    <button
+        class="close-photo"
+        type="button"
+        onclick="closePhotoFullscreen()"
+    >
+        ← Volver a la carta
+    </button>
+
+
+    <div class="fullscreen-message">
+        Un pequeño recuerdo que siempre llevaremos en el corazón 🐾
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+const photoViewer =
+    document.getElementById("photoFullscreen");
+
+const mainPhoto =
+    document.getElementById("noahPhoto");
+
+const fullscreenImage =
+    document.getElementById("fullscreenImage");
+
+
+/* =========================================================
+   ABRIR FOTO A PANTALLA COMPLETA
+========================================================= */
+
+function openPhotoFullscreen(){
+
+    photoViewer.classList.add("active");
+
+    photoViewer.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================================
+   CERRAR FOTO Y VOLVER A LA CARTA
+========================================================= */
+
+function closePhotoFullscreen(){
+
+    photoViewer.classList.remove("active");
+
+    photoViewer.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =========================================================
+   EVITAR QUE UN CLIC SOBRE EL FONDO CIERRE
+   ACCIDENTALMENTE LA FOTO
+========================================================= */
+
+photoViewer.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === photoViewer){
+
+            closePhotoFullscreen();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TECLA ESC EN COMPUTADOR
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            if(
+                photoViewer.classList.contains("active")
+            ){
+
+                closePhotoFullscreen();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BOTÓN ATRÁS DE ANDROID
+========================================================= */
+
+window.addEventListener(
+    "popstate",
+    function(){
+
+        if(
+            photoViewer.classList.contains("active")
+        ){
+
+            closePhotoFullscreen();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   EVITAR QUE LA FOTO SE PUEDA ARRASTRAR
+========================================================= */
+
+mainPhoto.addEventListener(
+    "dragstart",
+    function(event){
+
+        event.preventDefault();
+
+    }
+);
+
+fullscreenImage.addEventListener(
+    "dragstart",
+    function(event){
+
+        event.preventDefault();
+
+    }
+);
+
+</script>
+
 </body>
-  </html>
+</html> 
