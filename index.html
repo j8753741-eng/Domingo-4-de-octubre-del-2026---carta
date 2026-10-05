@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050509">
+
+<title>Mi Dulce Latido de Domingo · 04 de Octubre de 2026</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 15%, rgba(105,78,150,.12), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(120,80,170,.08), transparent 35%),
+        #050509;
+    color:#d8b86a;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* =========================================================
+   REFLEJO ACUÁTICO DEL FONDO
+========================================================= */
+
+.water{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.water::before,
+.water::after{
+    content:"";
+    position:absolute;
+    left:-10%;
+    width:120%;
+    height:100%;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            rgba(218,181,100,.035) 2px,
+            transparent 5px,
+            rgba(120,80,170,.025) 9px
+        );
+    opacity:.65;
+    filter:blur(1px);
+    animation:waterMove 9s ease-in-out infinite alternate;
+}
+
+.water::before{
+    top:20%;
+    transform:skewY(-2deg);
+}
+
+.water::after{
+    top:55%;
+    transform:skewY(2deg);
+    animation-duration:12s;
+}
+
+@keyframes waterMove{
+    from{
+        transform:translateX(-3%) skewY(-2deg);
+    }
+    to{
+        transform:translateX(3%) skewY(2deg);
+    }
+}
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.particle{
+    position:fixed;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#d7b55f;
+    opacity:.35;
+    box-shadow:0 0 8px rgba(215,181,95,.7);
+    animation:float 8s infinite ease-in-out;
+    pointer-events:none;
+    z-index:1;
+}
+
+.p1{left:12%;top:25%;animation-delay:0s;}
+.p2{left:84%;top:18%;animation-delay:2s;}
+.p3{left:20%;top:72%;animation-delay:4s;}
+.p4{left:76%;top:67%;animation-delay:1s;}
+.p5{left:50%;top:12%;animation-delay:5s;}
+.p6{left:91%;top:84%;animation-delay:3s;}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);opacity:.2;}
+    50%{transform:translateY(-18px);opacity:.7;}
+}
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.page{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:850px;
+    margin:auto;
+    padding:28px 18px 70px;
+}
+
+/* =========================================================
+   ENCABEZADO GATUNO
+========================================================= */
+
+.cat-header{
+    position:relative;
+    border:1px solid rgba(210,175,95,.42);
+    border-radius:26px;
+    overflow:hidden;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,20,30,.96),
+            rgba(5,5,9,.97)
+        );
+    box-shadow:
+        0 0 30px rgba(197,158,74,.08),
+        inset 0 0 30px rgba(210,175,95,.035);
+    margin-bottom:32px;
+}
+
+.cat-header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            110deg,
+            transparent 30%,
+            rgba(255,255,255,.035) 50%,
+            transparent 70%
+        );
+    transform:translateX(-100%);
+    animation:shine 7s infinite;
+    pointer-events:none;
+}
+
+@keyframes shine{
+    0%,65%{transform:translateX(-100%);}
+    85%,100%{transform:translateX(100%);}
+}
+
+.image-frame{
+    padding:13px;
+    background:linear-gradient(
+        135deg,
+        rgba(218,181,100,.35),
+        rgba(90,50,120,.12),
+        rgba(218,181,100,.28)
+    );
+}
+
+.image-frame img{
+    display:block;
+    width:100%;
+    max-height:430px;
+    object-fit:cover;
+    border-radius:18px;
+    border:1px solid rgba(218,181,100,.35);
+    filter:saturate(.85) contrast(1.05);
+    box-shadow:0 0 35px rgba(0,0,0,.8);
+}
+
+.header-info{
+    padding:24px 20px 27px;
+    text-align:center;
+}
+
+.cat-symbol{
+    font-size:28px;
+    color:#d9b866;
+    text-shadow:0 0 12px rgba(220,185,100,.45);
+    margin-bottom:10px;
+}
+
+.date{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#987d4c;
+    margin-bottom:12px;
+}
+
+.header-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(27px,7vw,48px);
+    line-height:1.05;
+    font-weight:600;
+    color:#e1bd6a;
+    text-shadow:
+        0 0 9px rgba(219,180,91,.28),
+        0 14px 14px rgba(202,166,82,.07);
+}
+
+/* =========================================================
+   CARTA
+========================================================= */
+
+.letter{
+    position:relative;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(14,12,18,.96),
+            rgba(7,7,11,.97)
+        );
+    border:1px solid rgba(216,178,91,.25);
+    border-radius:30px;
+    padding:42px 27px 45px;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        inset 0 0 45px rgba(170,115,210,.025);
+    overflow:hidden;
+}
+
+.letter::before{
+    content:"";
+    position:absolute;
+    top:-90px;
+    left:50%;
+    width:180px;
+    height:180px;
+    transform:translateX(-50%);
+    background:rgba(160,100,200,.07);
+    filter:blur(55px);
+    border-radius:50%;
+}
+
+.letter::after{
+    content:"";
+    position:absolute;
+    left:8%;
+    right:8%;
+    bottom:15px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(211,174,91,.35),
+        transparent
+    );
+}
+
+.letter p{
+    position:relative;
+    z-index:2;
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    line-height:1.72;
+    color:#e3d8bf;
+    margin-bottom:23px;
+}
+
+.letter p:first-child{
+    text-align:center;
+    color:#e0b961;
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:30px;
+    text-shadow:0 0 14px rgba(222,185,93,.18);
+}
+
+.letter strong{
+    color:#e2bb65;
+    font-weight:600;
+    text-shadow:0 0 8px rgba(218,178,87,.18);
+}
+
+.letter .love-line{
+    text-align:center;
+    font-size:27px;
+    color:#e8c66e;
+    margin:31px 0;
+    text-shadow:0 0 14px rgba(218,179,88,.2);
+}
+
+.letter .signature{
+    text-align:center;
+    color:#d6b15f;
+    margin-top:30px;
+    margin-bottom:5px;
+    font-size:23px;
+}
+
+/* =========================================================
+   REFLEJO DECORATIVO
+========================================================= */
+
+.reflection{
+    position:relative;
+    height:100px;
+    margin-top:-3px;
+    overflow:hidden;
+    opacity:.25;
+    transform:scaleY(-1);
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent);
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent);
+}
+
+.reflection-text{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    color:#d7b15f;
+    filter:blur(1.5px);
+}
+
+/* =========================================================
+   MENSAJE FINAL NEÓN
+========================================================= */
+
+.final-love{
+    margin:45px 0 35px;
+    padding:35px 23px;
+    border-radius:25px;
+    border:1px solid rgba(170,80,255,.35);
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(139,54,190,.13),
+            transparent 65%
+        ),
+        rgba(8,5,13,.94);
+    box-shadow:
+        0 0 35px rgba(133,50,190,.12),
+        inset 0 0 30px rgba(130,50,190,.04);
+    text-align:center;
+}
+
+.final-love .paw{
+    font-size:30px;
+    margin-bottom:17px;
+    color:#b66cff;
+    filter:
+        drop-shadow(0 0 6px #8f35ff)
+        drop-shadow(0 0 15px rgba(166,75,255,.8));
+}
+
+.final-love p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.7;
+    color:#d68cff;
+    text-shadow:
+        0 0 5px #a848ff,
+        0 0 12px rgba(151,55,255,.75),
+        0 0 25px rgba(135,35,230,.5);
+}
+
+.final-love .noah{
+    margin-top:22px;
+    font-size:22px;
+}
+
+.final-love .heart{
+    display:block;
+    margin-top:20px;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:4px;
+    color:#b65cff;
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   BOTÓN DEL POEMA
+========================================================= */
+
+.poem-section{
+    text-align:center;
+    margin-top:40px;
+}
+
+.poem-label{
+    font-size:11px;
+    letter-spacing:3px;
+    color:#8f7951;
+    text-transform:uppercase;
+    margin-bottom:16px;
+}
+
+.poem-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+    min-height:57px;
+    padding:0 27px;
+    border-radius:999px;
+    text-decoration:none;
+    color:#08060b;
+    background:linear-gradient(
+        135deg,
+        #e8c36e,
+        #b98735
+    );
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:1px;
+    box-shadow:
+        0 0 18px rgba(218,178,87,.2),
+        0 8px 25px rgba(0,0,0,.5);
+    transition:.35s ease;
+}
+
+.poem-button:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 0 25px rgba(218,178,87,.4),
+        0 12px 30px rgba(0,0,0,.6);
+}
+
+.poem-button:active{
+    transform:scale(.97);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    margin-top:42px;
+    color:#66583f;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.footer-paw{
+    display:block;
+    font-size:20px;
+    color:#80623a;
+    margin-bottom:10px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:600px){
+
+    .page{
+        padding:15px 11px 55px;
+    }
+
+    .cat-header{
+        border-radius:21px;
+    }
+
+    .image-frame{
+        padding:9px;
+    }
+
+    .image-frame img{
+        max-height:340px;
+        border-radius:14px;
+    }
+
+    .header-info{
+        padding:20px 15px 23px;
+    }
+
+    .header-title{
+        font-size:31px;
+    }
+
+    .date{
+        font-size:9px;
+        letter-spacing:3px;
+    }
+
+    .letter{
+        padding:34px 20px 38px;
+        border-radius:24px;
+    }
+
+    .letter p{
+        font-size:20px;
+        line-height:1.68;
+        margin-bottom:21px;
+    }
+
+    .letter p:first-child{
+        font-size:26px;
+    }
+
+    .letter .love-line{
+        font-size:25px;
+    }
+
+    .final-love{
+        padding:30px 18px;
+    }
+
+    .final-love p{
+        font-size:21px;
+        line-height:1.65;
+    }
+
+    .poem-button{
+        width:100%;
+        max-width:330px;
+        padding:0 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="water"></div>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+<div class="particle p6"></div>
+
+<main class="page">
+
+    <!-- =====================================================
+         IMAGEN SUPERIOR
+         Cambia "noah-octubre-04.jpg" por el nombre de tu foto.
+    ====================================================== -->
+
+    <section class="cat-header">
+
+        <div class="image-frame">
+            <img
+                src="noah-octubre-04.jpg"
+                alt="Un recuerdo especial"
+            >
+        </div>
+
+        <div class="header-info">
+
+            <div class="cat-symbol">🐾</div>
+
+            <div class="date">
+                04 · OCTUBRE · 2026
+            </div>
+
+            <h1 class="header-title">
+                Mi Dulce Latido de Domingo
+            </h1>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CARTA — TEXTO CONSERVADO EXACTAMENTE
+    ====================================================== -->
+
+    <article class="letter">
+
+        <p>
+            Mi Dulce Latido de Domingo,
+        </p>
+
+        <p>
+            Esta es mi cuarta cartita de octubre, amor, y aunque como te dije ayer quizá estos primeros días no sienta tan fuerte el peso de extrañarte, la verdad es que sí te extraño… más de lo que a veces digo.
+        </p>
+
+        <p>
+            Por más que quiera ir a verte, salir contigo o simplemente tenerte cerquita, de momento no puedo, así que intento mantener mi mente ocupada y dejar que hagas tranquilita tus cositas, porque sé que también tienes tus ocupaciones y no quiero molestarte.
+        </p>
+
+        <p>
+            Si estos días me ves escribiéndote una vez cada hora, cada dos horas, o incluso esperando hasta que tú me escribas, mi niña, nunca pienses que estoy molesto, distante o incómodo contigo. No lo estoy. Es simplemente mi manera de quererte también: aprendiendo a darte tu espacio aunque por dentro tenga unas ganas enormes de saber de ti todo el tiempo.
+        </p>
+
+        <p>
+            Pero hay algo que no cambia aunque pasen horas sin hablar:
+        </p>
+
+        <p class="love-line">
+            <strong>
+                te sigo amando exactamente igual.
+            </strong>
+        </p>
+
+        <p>
+            Y quiero que cuando abras los ojos, sin importar a qué hora encuentres esta carta, sientas que desde muy temprano ya había un pedacito de mi amor esperándote aquí, acompañándote en silencio durante tu domingo.
+        </p>
+
+        <p>
+            Te amo muchísimo, mi niña.
+            Más de lo que cabe en estas palabras y mucho más de lo que puede explicar cualquier silencio. ❤️
+        </p>
+
+        <p class="signature">
+            Siempre tuyo,<br>
+            Juan.
+        </p>
+
+    </article>
+
+
+    <!-- Reflejo de la carta sobre el "agua" -->
+
+    <div class="reflection">
+        <div class="reflection-text">
+            Te amo muchísimo, mi niña.
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         MENSAJE FINAL ÚNICO PARA ESTA MAÑANA
+    ====================================================== -->
+
+    <section class="final-love">
+
+        <div class="paw">🐾</div>
+
+        <p>
+            Mon amour, si un jour les mots deviennent trop petits
+            pour contenir tout ce que mon cœur ressent pour toi,
+            souviens-toi simplement que je te choisirais encore,
+            encore et encore, dans chaque vie, dans chaque matin,
+            dans chaque endroit où pudiera encontrarte.
+        </p>
+
+        <p class="noah">
+            Et je veux croire que notre petit Noah veille sur nous
+            depuis le ciel, qu'il marche doucement à nos côtés,
+            qu'il nous accompagne dans chaque chemin que nous prenons
+            et qu'il reste pour toujours une petite lumière de notre amour,
+            là où nous allions, preciosa.
+        </p>
+
+        <span class="heart">
+            Pour toujours · toi et moi · et notre petit Noah
+        </span>
+
+    </section>
+
+
+    <!-- =====================================================
+         BOTÓN DEL POEMA
+         Cambia "poema-04-octubre.html" si tu archivo tiene
+         otro nombre.
+    ====================================================== -->
+
+    <section class="poem-section">
+
+        <div class="poem-label">
+            Una última huellita para esta mañana
+        </div>
+
+        <a
+            class="poem-button"
+            href="https://j8753741-eng.github.io/Domingo-4-de-octubre-del-2026---poema/"
+        >
+            🐾 Abrir el poema de este día
+        </a>
+
+    </section>
+
+
+    <footer>
+
+        <span class="footer-paw">🐾</span>
+
+        Hecho con amor, para Valeria.
+
+    </footer>
+
+</main>
+
+</body>
+  </html>
